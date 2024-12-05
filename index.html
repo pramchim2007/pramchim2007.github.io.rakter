@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เเงงงงงง</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            transition: all 1s ease-in-out;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            display: none; /* ซ่อนตอนแรก */
+        }
+
+        .question {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .question img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn.yes {
+            background-color: #28a745;
+        }
+
+        .btn.no {
+            background-color: #dc3545;
+            position: relative;
+        }
+
+        .btn.no:hover {
+            transform: translateX(100px);
+        }
+
+        .btn.yes:hover {
+            background-color: #218838;
+        }
+
+        .result img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .result {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="question">
+        <img src="https://media.discordapp.net/attachments/1298908246375006218/1314187901306798152/DALLE_2024-12-05_18.12.56_-_A_heartwarming_illustration_of_a_cute_kitten_and_a_small_puppy_cuddling_together._The_kitten_has_soft_orange_fur_with_white_paws_and_the_puppy_is_a_f.webp?ex=6752dc5c&is=67518adc&hm=f0444256b2d9753bc974b0ee68ccbc87e4df67bccdcedc811fa72988093bdc2a&=&format=webp&width=671&height=671" alt="Cute Cat">
+        <h1>เป็นเเฟนกับเค้ามั้ยค้าบคุณเธอ😊</h1>
+        <div class="buttons">
+            <button class="btn yes" onclick="sayYes()">Yes</button>
+            <button class="btn no" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+
+    <div class="container result" id="result">
+        <img src="https://media.discordapp.net/attachments/1298908246375006218/1314188931377533009/IMG_20241205_181728.jpg?ex=6752dd51&is=67518bd1&hm=593e276078a063b02d74bbd63bd4c44a2b3ff0319f00fe000da5de1dd8a94cf1&=&format=webp&width=218&height=350" alt="Couple Photo"> <!-- ใส่ URL รูปคู่ที่นี่ -->
+        <h1>เเสดงว่าตกลงคบกับเค้าเเล้วใชะมั้ย ❤️</h1>
+        <p>เย้ๆๆๆเป็นเเฟนกันเเล้วน้าาสัญญาว่าจะดูเเลเธอให้ดีที่สุดขอบคุณที่เลือกเค้าน้าารักนะคะ 🥰</p>
+    </div>
+
+    <!-- แทรกเพลง -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.mediafire.com/file/7xo9qm11nzhehbj/2024-12-05-18-39-43.mp3/file" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function moveButton() {
+            const button = document.querySelector('.btn.no');
+            const randomX = Math.random() * 200 - 100; // Random move between -100 to 100px
+            const randomY = Math.random() * 200 - 100;
+            button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function sayYes() {
+            // ซ่อนคำถามและแสดงผลลัพธ์
+            document.querySelector('.question').style.display = 'none';
+            const result = document.getElementById('result');
+            result.style.display = 'block';
+            document.body.style.background = 'linear-gradient(45deg, #c6ffdd, #fbd786, #f7797d)';
+
+            // เริ่มเล่นเพลงหลังจากกด Yes
+            const audio = document.getElementById('backgroundMusic');
+            audio.play(); // เริ่มเล่นเพลง
+        }
+    </script>
+</body>
+</html>
